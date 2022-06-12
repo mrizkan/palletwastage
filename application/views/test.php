@@ -1,85 +1,217 @@
-$BuyerId = $this->session->userdata('Supplier_Id');
-$SizeIdFromCart=0;
-$BuyerNameFromCart=0;
-$ReleasingQtyFromCart=0;
-$ItemSizeFromCart=0;
-$AfterReleasePendingQty=0;
-$AfterReleaseReleasingQty=0;
-$QuantityFlag=0;
-$ItemFlag=0;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <?php include('inc/header_top.php'); ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.min.js"></script>
+</head>
+<!-- Menu horizontal icon fixed -->
+
+<body class="horizontal-icon-fixed">
+<!-- Pre-loader start -->
+<div class="theme-loader">
+    <div class="ball-scale">
+        <div></div>
+    </div>
+</div>
+<!-- Pre-loader end -->
+<div id="pcoded" class="pcoded">
+
+    <div class="pcoded-container">
+        <!-- Menu header start -->
+        <?php $this->view('inc/top_bar.php'); ?>
+        <!-- Menu header end -->
+        <div class="pcoded-main-container">
+            <?php $this->view('inc/navigation.php'); ?>
+            <div class="pcoded-wrapper">
+                <div class="pcoded-content">
+                    <div class="pcoded-inner-content">
+                        <!-- Main-body start -->
+                        <div class="main-body">
+                            <div class="page-wrapper">
+                                <!-- Page header start -->
+                                <div class="page-header">
+                                    <?php $this->view('inc/success_notification.php'); ?>
 
 
+                                </div>
+                                <!-- Page header end -->
+                                <!-- Page body start -->
+                                <div class="page-body">
+                                    <div class="row">
 
-foreach ($this->cart->contents() as $items):
-//get PO Number 01
-//table recode by poid 02
+                                        <form action="Calculation" method="post"
+                                              enctype="multipart/form-data">
 
-$OrderMainDetailsForSupplierId = $this->ordermain->get_many_by(['Status' => 0 ,'BuyerId' =>$BuyerId]);
-foreach ($OrderMainDetailsForSupplierId as $k => $orderdata):
-$PoIdForTheBuyerFromOrderMainTable=$orderdata->PoId;
-echo "<br><br>".$PoIdForTheBuyerFromOrderMainTable;echo "<br>";
+                                            <div class="col-lg-6">
+                                                <!-- Basic Form Inputs card start -->
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Wastage Details</h5>
+                                                        <div class="card-header-right">
+                                                            <i class="icofont icofont-rounded-down"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
 
-$SizeIdFromCart= $items['id'];
-$BuyerNameFromCart= $items['name'];
-$ItemSizeFromCart= $items['size'];
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-12">
+                                                                <label>Pallet Size</label>
+                                                                <input type="text" name="form[PalletSize]"
+                                                                       required class="form-control"
+                                                                       placeholder="Pallet Size">
+                                                            </div>
+                                                            <div class="col-sm-9"></div>
+                                                            <div class="col-sm-3">
+                                                                <label>Material A</label>
+                                                                <input type="text" name="form[MaterialA]"
+                                                                       required class="form-control"
+                                                                       placeholder="Material A"
+                                                                >
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <label>Material B</label>
+                                                                <input type="text" name="form[MaterialB]"
+                                                                       class="form-control" placeholder="Material B"
+                                                                >
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <label>Standard size Used</label>
+                                                                <input type="text" name="form[MaterialAL]" class="form-control"
+                                                                       placeholder="L">
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <label>Standard size Used</label>
+                                                                <input type="text" name="form[MaterialBL]" class="form-control"
+                                                                       placeholder="L">
+                                                            </div>
+                                                            <div class="col-sm-1"><br>
+                                                                <button class="btn btn-sm btn-primary btn-round">
+                                                                    Calculate
+                                                                </button>
+                                                            </div>
+                                                        </div>
 
+                                                    </div>
+                                                </div>
+                                                <!-- Basic Form Inputs card end -->
 
-
-$OrderDetailsFromOrderDetailsTable = $this->orderdetail->get_many_by(['PoId' => $PoIdForTheBuyerFromOrderMainTable]);
-foreach ($OrderDetailsFromOrderDetailsTable as $r => $orderdetails):
-if ($SizeIdFromCart==$orderdetails->SizeId) {
-
-if($QuantityFlag == 0) {
-$ReleasingQtyFromCart = $items['qty'];
-}
-else{
-
-$ReleasingQtyFromCart = $AfterReleaseReleasingQty;
-}
-
-$sizedetail_data = $this->size->get($SizeIdFromCart);
-$PendingFromOrderDetails= $orderdetails->Pending; $StockAtStore =$sizedetail_data->Quantity;
-if ($PendingFromOrderDetails < $StockAtStore) {
-echo "Cart Item Name " . $ItemSizeFromCart;
-echo "<br>";
-echo "Order Details Name " . $orderdetails->Size;
-echo "<br>";
-echo " Releasing Qty" . $ReleasingQtyFromCart;
-echo "<br>";
-echo "Pending Quantity " . $orderdetails->Pending;
-echo "<br>";
-echo "Stock at Store " . $sizedetail_data->Quantity;
-
-echo "<br><br><br>";
-
-echo "Calculations";
-echo "<br>";
-echo "After Release , New Release QTY ".  $AfterReleaseReleasingQty = $ReleasingQtyFromCart - $orderdetails->Pending;
-echo "<br>";
-if ($orderdetails->Pending > $ReleasingQtyFromCart){
-$NewPendingQtyForOrderDetailTable= $orderdetails->Pending - $ReleasingQtyFromCart;
-}
-else{
-$NewPendingQtyForOrderDetailTable=0;
-}
-echo "Aftre Release , New Pending QTY ". $NewPendingQtyForOrderDetailTable;
-echo "<br>";
-
-echo " After Release New Reasing Quantity ".$AfterReleaseReleasingQty;
-// $ReleasingQtyFromCart =$AfterReleaseReleasingQty;
-$QuantityFlag=1;
-echo "<br><br><br>";
-
-}
-else{
-echo"We Doesn't have enough Stock to Release";
-} //Stock Checking IF finishing Here
-} //Cheking Item ID If ends Here
-endforeach; // Order Detail Table (Order Details for the PO ID from Order Main table)
+                                            </div>
 
 
+                                            <?= form_close() ?>
+
+                                            <?php if (!empty($data)) { ?>
+                                                <div class="col-lg-12">
+                                                    <!-- Complex Headers With Column Visibility table start -->
+                                                    <div class="card">
+                                                        <div class="card-header">
+
+                                                            <div class="card-header-right">
+                                                                <i class="icofont icofont-rounded-down"></i>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-block">
+                                                            <div class="table-responsive dt-responsive">
+                                                                <table id="complex-header"
+                                                                       class="table table-striped table-bordered nowrap"
+                                                                       style="display: block; overflow-x: auto; white-space: nowrap;">
+                                                                    <thead>
+                                                                    <tr style="background-color: #de3c3c; color: white;">
+                                                                        <th rowspan="2">Pallet Code</th>
+                                                                        <th rowspan="2">Pallet Size</th>
+                                                                        <th rowspan="2">Material Details</th>
+                                                                        <th colspan="3">Standard Size Used for a plank cm</th>
+                                                                        <th colspan="2">Volume of Standard plank</th>
+                                                                        <th colspan="1">No. of PCS used for a Pallet</th>
+                                                                        <th colspan="1">Standard Material Volume for
+                                                                            Manufacturing a Pallet using Standard
+                                                                        </th>
+                                                                        <th colspan="3">Required plank size for manufacturing a
+                                                                            Pallet
+                                                                        </th>
+                                                                        <th colspan="1">No. of PCS used for a Pallet</th>
+                                                                        <th colspan="1">Actual Material Volume used for
+                                                                            Manufacturing of a pallet
+                                                                        </th>
+                                                                        <th colspan="1">Off Cut</th>
+                                                                        <th colspan="1">Off Cut Wastage</th>
+                                                                        <th colspan="1">Wastage</th>
+                                                                        <th colspan="1">Wastage %</th>
+                                                                    </tr>
+                                                                    <tr style="background-color: #de3c3c; color: white;">
+                                                                        <th>L</th>
+                                                                        <th>W</th>
+                                                                        <th>H</th>
+                                                                        <th>cm<sup>3</sup></th>
+                                                                        <th>m<sup>3</sup></th>
+                                                                        <th>#</th>
+                                                                        <th>#</th>
+                                                                        <th>L</th>
+                                                                        <th>W</th>
+                                                                        <th>H</th>
+                                                                        <th>#</th>
+                                                                        <th>(Y m<sup>3</sup>)</th>
+                                                                        <th>cm</th>
+                                                                        <th>m<sup>3</sup></sup></th>
+                                                                        <th>(x-y m<sup>3</sup>)</th>
+                                                                        <th>m<sup>3</sup></th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr style="background-color: white; mso-ansi-font-weight: bold;">
+                                                                        <td>P1</td>
+                                                                        <td>40 X 40 X 12</td>
+                                                                        <td>Material A</td>
+                                                                        <td>120</td>
+                                                                        <td>10</td>
+                                                                        <td>1.9</td>
+                                                                        <td>2160</td>
+                                                                        <td>0.002160</td>
+                                                                        <td>13</td>
+                                                                        <td>0.028</td>
+                                                                        <td>100</td>
+                                                                        <td>9</td>
+                                                                        <td>2</td>
+                                                                        <td>13</td>
+                                                                        <td>0.0234</td>
+                                                                        <td>20</td>
+                                                                        <td>0.00468</td>
+                                                                        <td>0.0046</td>
+                                                                        <td>16%</td>
+                                                                    </tr>
 
 
-endforeach; //Order Main Table (get the PO ID foreach end here)
+                                                                    </tbody>
 
-endforeach; // Cart Item Fetch ends here
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Complex Headers With Column Visibility table end -->
+                                                </div>
+                                            <?php } else {  } ?>
+
+
+                                    </div>
+                                </div>
+                                <!-- Page body end -->
+                            </div>
+                        </div>
+                        <!-- Main-body end -->
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<?php $this->view('inc/footer_below.php'); ?>
+</body>
+
+</html>

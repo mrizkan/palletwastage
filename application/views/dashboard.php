@@ -5,6 +5,8 @@
     <?php include('inc/header_top.php'); ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.min.js"></script>
+
+
 </head>
 <!-- Menu horizontal icon fixed -->
 
@@ -55,12 +57,16 @@
 
                                                     <div class="form-group row">
                                                         <div class="col-sm-12">
-                                                            <label>Pallet Size</label>
                                                             <input type="text" name="form[PalletSize]"
                                                                    required class="form-control"
                                                                    placeholder="Pallet Size">
                                                         </div>
-                                                        <div class="col-sm-9"></div>
+                                                        <div class="col-sm-2">
+                                                            <br>
+                                                            <button class="btn btn-sm btn-primary btn-round">
+                                                                Calculate
+                                                            </button>
+                                                        </div>
                                                     </div>
 
                                                 </div>
@@ -81,15 +87,28 @@
                                                     <div class="form-group row">
                                                         <div class="col-sm-6">
 
-                                                            <input type="text" name="form[MaterialAL]"
+                                                            <input type="number" name="form[MaterialAL]"
                                                                    required class="form-control"
                                                                    placeholder="L">
                                                         </div>
                                                         <div class="col-sm-6">
 
-                                                            <input type="text" name="form[MaterialANoOfPCS]"
+                                                            <input type="number" name="form[MaterialANoOfPCS]"
                                                                    required class="form-control"
                                                                    placeholder="No. of PCS Used..">
+                                                        </div>
+                                                        <br><br>
+                                                        <div class="col-sm-6">
+
+                                                            <input type="number" name="form[MaterialARL]"
+                                                                   required class="form-control"
+                                                                   placeholder="Required Plank Size for Manufacturing a Pallet">
+                                                        </div>
+                                                        <div class="col-sm-6">
+
+                                                            <input type="number" name="form[MaterialARNPCS]"
+                                                                   required class="form-control"
+                                                                   placeholder="No. of PCS used for a Pallet">
                                                         </div>
 
                                                     </div>
@@ -112,15 +131,28 @@
                                                     <div class="form-group row">
                                                         <div class="col-sm-6">
 
-                                                            <input type="text" name="form[MaterialBL]"
+                                                            <input type="number" name="form[MaterialBL]"
                                                                    required class="form-control"
                                                                    placeholder="L">
                                                         </div>
                                                         <div class="col-sm-6">
 
-                                                            <input type="text" name="form[MaterialBNoOfPCS]"
+                                                            <input type="number" name="form[MaterialBNoOfPCS]"
                                                                    required class="form-control"
                                                                    placeholder="No. of PCS Used..">
+                                                        </div>
+                                                        <br><br>
+                                                        <div class="col-sm-6">
+
+                                                            <input type="number" name="form[MaterialBRL]"
+                                                                   required class="form-control"
+                                                                   placeholder="Required Plank Size for Manufacturing a Pallet">
+                                                        </div>
+                                                        <div class="col-sm-6">
+
+                                                            <input type="number" name="form[MaterialBRNPCS]"
+                                                                   required class="form-control"
+                                                                   placeholder="No. of PCS used for a Pallet">
                                                         </div>
 
 
@@ -144,23 +176,30 @@
                                                     <div class="form-group row">
                                                         <div class="col-sm-6">
 
-                                                            <input type="text" name="form[MaterialCL]"
+                                                            <input type="number" name="form[MaterialCL]"
                                                                     class="form-control"
                                                                    placeholder="L">
                                                         </div>
                                                         <div class="col-sm-6">
 
-                                                            <input type="text" name="form[MaterialCNoOfPCS]"
+                                                            <input type="number" name="form[MaterialCNoOfPCS]"
                                                                     class="form-control"
                                                                    placeholder="No. of PCS Used..">
                                                         </div>
-                                                        <div class="col-sm-7"></div>
-                                                        <div class="col-sm-2">
-                                                            <br>
-                                                            <button class="btn btn-sm btn-primary btn-round">
-                                                                Calculate
-                                                            </button>
+                                                        <br><br>
+                                                        <div class="col-sm-6">
+
+                                                            <input type="number" name="form[MaterialCRL]"
+                                                                    class="form-control"
+                                                                   placeholder="Required Plank Size for Manufacturing a Pallet">
                                                         </div>
+                                                        <div class="col-sm-6">
+
+                                                            <input type="number" name="form[MaterialCRNPCS]"
+                                                                    class="form-control"
+                                                                   placeholder="No. of PCS used for a Pallet">
+                                                        </div>
+
 
                                                     </div>
 
@@ -351,7 +390,7 @@
                                                                             <td style="background-color: #25db25;">16%</td>
 
                                                                         </tr>
-                                                                  <?php  } ?>
+                                                                  <?php $p++;  } ?>
 
                                                                 <?php }?>
 

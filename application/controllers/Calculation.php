@@ -47,7 +47,7 @@ class Calculation extends MY_Controller
                 "MaterialBL" => $MaterialBL,
                 "Bcm3" => $Bcm3,
                 "Bm3" => $Bm3,
-                "MaterialNoOfPCS" => $MaterialBNoOfPCS,
+                "MaterialBNoOfPCS" => $MaterialBNoOfPCS,
                 "MaterialCL" => $MaterialCL,
                 "Ccm3" => $Ccm3,
                 "Cm3" => $Cm3,
@@ -60,7 +60,7 @@ class Calculation extends MY_Controller
 //
 
 //            echo count($_SESSION['cart']);
-            p($_SESSION);
+//            p($_SESSION);
 
 
             $d2['data'] = $PalletSize;

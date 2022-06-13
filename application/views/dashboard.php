@@ -232,10 +232,10 @@
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                <?php foreach ($_SESSION['Material'] as $datas => $data) { ?>
+                                                                <?php $p=1; foreach ($_SESSION['Material'] as $datas => $data) { ?>
 
                                                                <tr style="background-color: white; mso-ansi-font-weight: bold;">
-                                                                    <td>P1</td>
+                                                                    <td><?php echo "P".$p; ?></td>
                                                                     <td><?php echo $data['PalletSize'];?></td>
                                                                     <td>Material A</td>
                                                                     <td><?php echo $data['MaterialAL'];?></td>
@@ -255,6 +255,104 @@
                                                                     <td>0.0046</td>
                                                                     <td>16%</td>
                                                                 </tr>
+                                                                    <tr style="background-color: white; mso-ansi-font-weight: bold;">
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td>Material B</td>
+                                                                        <td><?php echo $data['MaterialBL'];?></td>
+                                                                        <td>10</td>
+                                                                        <td>1.9</td>
+                                                                        <td><?php echo $data['Bcm3'];?></td>
+                                                                        <td><?php echo $data['Bm3'];?></td>
+                                                                        <td><?php echo $data['MaterialBNoOfPCS'];?></td>
+                                                                        <td>0.028</td>
+                                                                        <td>100</td>
+                                                                        <td>9</td>
+                                                                        <td>2</td>
+                                                                        <td>13</td>
+                                                                        <td>0.0234</td>
+                                                                        <td>20</td>
+                                                                        <td>0.00468</td>
+                                                                        <td>0.0046</td>
+                                                                        <td>16%</td>
+                                                                    </tr>
+                                                                    <?php if (!empty($data['MaterialCL'])){?>
+                                                                <tr style="background-color: white; mso-ansi-font-weight: bold;">
+
+
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td>Material C</td>
+                                                                        <td><?php echo $data['MaterialCL'];?></td>
+                                                                        <td>10</td>
+                                                                        <td>1.9</td>
+                                                                        <td><?php echo $data['Ccm3'];?></td>
+                                                                        <td><?php echo $data['Cm3'];?></td>
+                                                                        <td><?php echo $data['MaterialCNoOfPCS'];?></td>
+                                                                        <td>0.028</td>
+                                                                        <td>100</td>
+                                                                        <td>9</td>
+                                                                        <td>2</td>
+                                                                        <td>13</td>
+                                                                        <td>0.0234</td>
+                                                                        <td>20</td>
+                                                                        <td>0.00468</td>
+                                                                        <td>0.0046</td>
+                                                                        <td>16%</td>
+
+                                                                </tr>
+                                                                        <tr style="background-color: white; mso-ansi-font-weight: bold;">
+
+
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td style="background-color: #25db25;">0.028</td>
+                                                                            <td style="background-color: #25db25;">100</td>
+                                                                            <td style="background-color: #25db25;">9</td>
+                                                                            <td style="background-color: #25db25;">2</td>
+                                                                            <td style="background-color: #25db25;">13</td>
+                                                                            <td style="background-color: #25db25;">0.0234</td>
+                                                                            <td style="background-color: #25db25;">20</td>
+                                                                            <td style="background-color: #25db25;">0.00468</td>
+                                                                            <td style="background-color: #25db25;">0.0046</td>
+                                                                            <td style="background-color: #25db25;">16%</td>
+
+                                                                        </tr>
+                                                                <!--  If No Data for Material C below codes-->
+                                                                    <?php $p++; } else { ?>
+                                                                        <tr style="background-color: white; mso-ansi-font-weight: bold;">
+
+
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td style="background-color: #25db25;">0.028</td>
+                                                                            <td style="background-color: #25db25;">100</td>
+                                                                            <td style="background-color: #25db25;">9</td>
+                                                                            <td style="background-color: #25db25;">2</td>
+                                                                            <td style="background-color: #25db25;">13</td>
+                                                                            <td style="background-color: #25db25;">0.0234</td>
+                                                                            <td style="background-color: #25db25;">20</td>
+                                                                            <td style="background-color: #25db25;">0.00468</td>
+                                                                            <td style="background-color: #25db25;">0.0046</td>
+                                                                            <td style="background-color: #25db25;">16%</td>
+
+                                                                        </tr>
+                                                                  <?php  } ?>
+
                                                                 <?php }?>
 
 

@@ -284,15 +284,15 @@
                                                                     <td><?php echo $data['Acm3'];?></td>
                                                                     <td><?php echo $data['Am3'];?></td>
                                                                     <td><?php echo $data['MaterialANoOfPCS'];?></td>
-                                                                    <td>0.028</td>
-                                                                    <td>100</td>
-                                                                    <td>9</td>
-                                                                    <td>2</td>
-                                                                    <td>13</td>
-                                                                    <td>0.0234</td>
-                                                                    <td>20</td>
+                                                                    <td><?php echo $data['MaterialASMVMPuS'];?></td>
+                                                                    <td><?php echo $data['MaterialARequiredPSMP'];?></td>
+                                                                    <td>10</td>
+                                                                    <td>1.9</td>
+                                                                    <td><?php echo $data['MaterialARequiredNPCS'];?></td>
+                                                                    <td><?php echo $data['MaterialAAMVuMP'];?></td>
+                                                                    <td><?php echo $data['MaterialAOffCut'];?></td>
                                                                     <td>0.00468</td>
-                                                                    <td>0.0046</td>
+                                                                    <td><?php echo $data['MaterialAWastage'];?></td>
                                                                     <td>16%</td>
                                                                 </tr>
                                                                     <tr style="background-color: white; mso-ansi-font-weight: bold;">
@@ -301,19 +301,19 @@
                                                                         <td>Material B</td>
                                                                         <td><?php echo $data['MaterialBL'];?></td>
                                                                         <td>10</td>
-                                                                        <td>1.9</td>
+                                                                        <td>3.8</td>
                                                                         <td><?php echo $data['Bcm3'];?></td>
                                                                         <td><?php echo $data['Bm3'];?></td>
                                                                         <td><?php echo $data['MaterialBNoOfPCS'];?></td>
-                                                                        <td>0.028</td>
-                                                                        <td>100</td>
-                                                                        <td>9</td>
-                                                                        <td>2</td>
-                                                                        <td>13</td>
-                                                                        <td>0.0234</td>
-                                                                        <td>20</td>
+                                                                        <td><?php echo $data['MaterialBSMVMPuS'];?></td>
+                                                                        <td><?php echo $data['MaterialBRequiredPSMP'];?></td>
+                                                                        <td>10</td>
+                                                                        <td>3.8</td>
+                                                                        <td><?php echo $data['MaterialBRequiredNPCS'];?></td>
+                                                                        <td><?php echo $data['MaterialBAMVuMP'];?></td>
+                                                                        <td><?php echo $data['MaterialBOffCut'];?></td>
                                                                         <td>0.00468</td>
-                                                                        <td>0.0046</td>
+                                                                        <td><?php echo $data['MaterialBWastage'];?></td>
                                                                         <td>16%</td>
                                                                     </tr>
                                                                     <?php if (!empty($data['MaterialCL'])){?>
@@ -325,19 +325,19 @@
                                                                         <td>Material C</td>
                                                                         <td><?php echo $data['MaterialCL'];?></td>
                                                                         <td>10</td>
-                                                                        <td>1.9</td>
+                                                                        <td>3.8</td>
                                                                         <td><?php echo $data['Ccm3'];?></td>
                                                                         <td><?php echo $data['Cm3'];?></td>
                                                                         <td><?php echo $data['MaterialCNoOfPCS'];?></td>
-                                                                        <td>0.028</td>
-                                                                        <td>100</td>
-                                                                        <td>9</td>
-                                                                        <td>2</td>
-                                                                        <td>13</td>
-                                                                        <td>0.0234</td>
-                                                                        <td>20</td>
+                                                                        <td><?php echo $data['MaterialCSMVMPuS'];?></td>
+                                                                        <td><?php echo $data['MaterialCRequiredPSMP'];?></td>
+                                                                        <td>10</td>
+                                                                        <td>3.8</td>
+                                                                        <td><?php echo $data['MaterialCRequiredNPCS'];?></td>
+                                                                        <td><?php echo $data['MaterialCAMVuMP'];?></td>
+                                                                        <td><?php echo $data['MaterialCOffCut'];?></td>
                                                                         <td>0.00468</td>
-                                                                        <td>0.0046</td>
+                                                                        <td><?php echo $data['MaterialCWastage'];?></td>
                                                                         <td>16%</td>
 
                                                                 </tr>
@@ -353,15 +353,15 @@
                                                                             <td></td>
                                                                             <td></td>
                                                                             <td></td>
-                                                                            <td style="background-color: #25db25;">0.028</td>
-                                                                            <td style="background-color: #25db25;">100</td>
-                                                                            <td style="background-color: #25db25;">9</td>
-                                                                            <td style="background-color: #25db25;">2</td>
-                                                                            <td style="background-color: #25db25;">13</td>
-                                                                            <td style="background-color: #25db25;">0.0234</td>
-                                                                            <td style="background-color: #25db25;">20</td>
+                                                                            <td style="background-color: #25db25;"><?php echo $data['TotalSMVMPuS'];?></td>
+                                                                            <td style="background-color: #25db25;"></td>
+                                                                            <td style="background-color: #25db25;"></td>
+                                                                            <td style="background-color: #25db25;"></td>
+                                                                            <td style="background-color: #25db25;"></td>
+                                                                            <td style="background-color: #25db25;"><?php echo $data['TotalAMVuMP'];?></td>
+                                                                            <td style="background-color: #25db25;"><?php echo $data['TotalOffCut'];?></td>
                                                                             <td style="background-color: #25db25;">0.00468</td>
-                                                                            <td style="background-color: #25db25;">0.0046</td>
+                                                                            <td style="background-color: #25db25;"><?php echo $data['TotalWastage'];?></td>
                                                                             <td style="background-color: #25db25;">16%</td>
 
                                                                         </tr>
@@ -379,15 +379,15 @@
                                                                             <td></td>
                                                                             <td></td>
                                                                             <td></td>
-                                                                            <td style="background-color: #25db25;">0.028</td>
-                                                                            <td style="background-color: #25db25;">100</td>
-                                                                            <td style="background-color: #25db25;">9</td>
-                                                                            <td style="background-color: #25db25;">2</td>
-                                                                            <td style="background-color: #25db25;">13</td>
-                                                                            <td style="background-color: #25db25;">0.0234</td>
-                                                                            <td style="background-color: #25db25;">20</td>
+                                                                            <td style="background-color: #25db25;"><?php echo $data['TotalSMVMPuS'];?></td>
+                                                                            <td style="background-color: #25db25;"></td>
+                                                                            <td style="background-color: #25db25;"></td>
+                                                                            <td style="background-color: #25db25;"></td>
+                                                                            <td style="background-color: #25db25;"></td>
+                                                                            <td style="background-color: #25db25;"><?php echo $data['TotalAMVuMP'];?></td>
+                                                                            <td style="background-color: #25db25;"><?php echo $data['TotalOffCut'];?></td>
                                                                             <td style="background-color: #25db25;">0.00468</td>
-                                                                            <td style="background-color: #25db25;">0.0046</td>
+                                                                            <td style="background-color: #25db25;"><?php echo $data['TotalWastage'];?></td>
                                                                             <td style="background-color: #25db25;">16%</td>
 
                                                                         </tr>

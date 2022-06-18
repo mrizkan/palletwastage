@@ -8,7 +8,7 @@
 </head>
 
 <body class="fix-menu">
-    <section class="login p-fixed d-flex text-center bg-primary" style="background-image: <?= base_url() ?>assets/images/loginbackground.jpg"">
+    <section class="login p-fixed d-flex text-center bg-primary common-img-bg" >
         <!-- Container-fluid starts -->
         <div class="container-fluid">
             <div class="row">

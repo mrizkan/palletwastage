@@ -48,7 +48,7 @@
                                             <!-- Basic Form Inputs card start -->
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h5>Wastage Details</h5>
+                                                    <h5>Wastage Details </h5>
                                                     <div class="card-header-right">
                                                         <i class="icofont icofont-rounded-down"></i>
                                                     </div>
@@ -216,7 +216,8 @@
                                                 <!-- Complex Headers With Column Visibility table start -->
                                                 <div class="card">
                                                     <div class="card-header">
-
+                                                        <a href="<?= base_url() . "Calculation/print_datas" ?>"
+                                                           class="btn btn-inverse" target="_blank"> Print</a>
                                                         <div class="card-header-right">
                                                             <i class="icofont icofont-rounded-down"></i>
 

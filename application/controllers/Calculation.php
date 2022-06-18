@@ -70,5 +70,25 @@ class Calculation extends MY_Controller
 
 
     }
+    function print_datas()
+    {
+        $data['records'] = $_SESSION['Material'];
+        //load the view, pass the variable and do not show it but "save" the output into $html variable
+        $html=$this->load->view('print_all_datas.php', $data, true);
+//        $html=$this->view($data);
+
+//this the the PDF filename that user will get to download
+        $pdfFilePath = "Print-Details.pdf";
+
+//load mPDF library
+        $this->load->library('pdf');
+//actually, you can pass mPDF parameter on this load() functionorder
+        $pdf = $this->pdf->load();
+//generate the PDF!
+        $pdf->WriteHTML($html);
+//offer it to user via browser download! (The PDF won't be saved on your server HDD)
+        $pdf->Output($pdfFilePath, "I");
+
+    }
 
 }
